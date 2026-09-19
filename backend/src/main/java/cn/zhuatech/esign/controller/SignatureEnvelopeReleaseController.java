@@ -8,12 +8,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/enterprise/esign")
 public class SignatureEnvelopeReleaseController {
     private final SignatureEnvelopeReleaseService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public SignatureEnvelopeReleaseController(SignatureEnvelopeReleaseService service) { this.service = service; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/envelope-release")
     public ApiResponse<?> assess(@RequestBody SignatureEnvelopeReleaseService.Request request) {
         return ApiResponse.ok(service.assess(request));

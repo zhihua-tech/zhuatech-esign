@@ -2,7 +2,13 @@
 package cn.zhuatech.esign.service;
 import jakarta.validation.Valid;import jakarta.validation.constraints.*;import org.springframework.stereotype.Service;
 import java.nio.charset.StandardCharsets;import java.security.MessageDigest;import java.time.OffsetDateTime;import java.util.*;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service public class EnterpriseEvidenceService {
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public Manifest build(@Valid ManifestRequest req){
    List<String> missing=new ArrayList<>();StringBuilder canonical=new StringBuilder(req.envelopeNo()).append('|').append(req.documentSha256().toLowerCase());
    Set<String> signerIds=new HashSet<>();
@@ -19,10 +25,22 @@ import java.nio.charset.StandardCharsets;import java.security.MessageDigest;impo
    String manifestHash=sha256(canonical.toString());
    return new Manifest(req.envelopeNo(),req.documentSha256().toLowerCase(),manifestHash,req.signers().size(),missing,missing.isEmpty()?"ARCHIVE_READY":"EVIDENCE_INCOMPLETE");
  }
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  private String sha256(String text){try{byte[] bytes=MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8));return java.util.HexFormat.of().formatHex(bytes);}catch(Exception e){throw new IllegalStateException(e);}}
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public record ManifestRequest(@NotBlank String envelopeNo,@NotBlank @Pattern(regexp="(?i)[0-9a-f]{64}") String documentSha256,
    OffsetDateTime trustedTimestamp,@NotEmpty List<@Valid SignerEvidence> signers){}
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public record SignerEvidence(@NotBlank String signerId,@NotBlank String signerName,boolean identityVerified,boolean sealAuthorized,
    OffsetDateTime signedAt,@NotBlank String clientIp,@NotBlank @Pattern(regexp="(?i)[0-9a-f]{64}") String signatureSha256){}
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public record Manifest(String envelopeNo,String documentSha256,String manifestSha256,int signerCount,List<String> missingEvidence,String decision){}
 }

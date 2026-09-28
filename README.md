@@ -1,5 +1,7 @@
 # ZhuaTech ESign｜知华科技电子签章与签署管理系统
 
+[简体中文](README.md) | [English](README.en.md)
+
 > 统一管理文件、签署人、印章授权和签署证据。
 
 [![Java 21](https://img.shields.io/badge/Java-21-315a70)](backend/pom.xml) [![Vue 3](https://img.shields.io/badge/Vue-3-42b883)](frontend/package.json) [![MySQL 8](https://img.shields.io/badge/MySQL-8-4479a1)](compose.yaml) [![个人非商用](https://img.shields.io/badge/license-personal%20non--commercial-b47b3a)](LICENSE)
